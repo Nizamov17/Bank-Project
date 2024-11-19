@@ -29,47 +29,43 @@ public class Transactions extends JFrame implements ActionListener {
         deposit = new JButton("Deposit");
         deposit.setBounds(213,423,100,20);
         deposit.addActionListener(this);
-        add(deposit);
+        image.add(deposit);
 
         withdrawal = new JButton("Cash Withdrawal");
         withdrawal.setBounds(210,458,140,20);
         withdrawal.addActionListener(this);
-        add(withdrawal);
+        image.add(withdrawal);
 
         fastCash = new JButton("Fast Cash");
         fastCash.setBounds(207,494,120,20);
         fastCash.addActionListener(this);
-        add(fastCash);
+        image.add(fastCash);
 
         miniStatement = new JButton("Mini Statement");
         miniStatement.setBounds(349,423,130,20);
         miniStatement.addActionListener(this);
-        add(miniStatement);
+        image.add(miniStatement);
 
         pinChange = new JButton("Pin Change");
         pinChange.setBounds(358,458,120,20);
         pinChange.addActionListener(this);
-        add(pinChange);
+        image.add(pinChange);
 
         balanceEnquiry = new JButton("Balance Enquiry");
         balanceEnquiry.setBounds(355,494,125,20);
         balanceEnquiry.addActionListener(this);
-        add(balanceEnquiry);
+        image.add(balanceEnquiry);
 
         exit = new JButton("Exit");
         exit.setBounds(379,530,100,20);
         exit.addActionListener(this);
-        add(exit);
-
-
+        image.add(exit);
 
 
         setSize(900,900);
         setLocation(500,80);
         setUndecorated(true);
         setVisible(true);
-
-
 
 
     }
@@ -82,6 +78,15 @@ public class Transactions extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == exit){
             System.exit(0);
+        } else if (e.getSource() == deposit) {
+            setVisible(false);
+            new Deposit(pinNumber).setVisible(true);
+        } else if (e.getSource() == withdrawal) {
+            setVisible(false);
+            new WithDrawl(pinNumber).setVisible(true);
+        } else if(e.getSource() == fastCash){
+            setVisible(false);
+            new FastCash(pinNumber).setVisible(true);
         }
     }
 }

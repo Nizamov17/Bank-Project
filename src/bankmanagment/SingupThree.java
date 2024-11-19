@@ -211,13 +211,16 @@ public class SingupThree extends JFrame implements ActionListener {
                     connect.s.executeUpdate(query1);
                     connect.s.executeUpdate(query2);
                     JOptionPane.showMessageDialog(null, "Card Number: " + cardNumber + "\n Pin: " + pinNumber);
+                    setVisible(false);
+                    new Deposit(pinNumber).setVisible(true);
                 }
             }catch (Exception e1){
                 System.out.println(e1);
             }
 
         } else if (e.getSource() == cancel) {
-            
+            setVisible(false);
+            new Login().setVisible(true);
         }
     }
 }
